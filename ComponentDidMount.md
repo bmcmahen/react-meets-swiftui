@@ -84,3 +84,42 @@ struct ChildCounter : View {
 }
 
 ```
+
+You can attach multiple `onAppear` and `onDisappear` callbacks in your `body` function:
+
+```swift
+struct Counter : View {
+    @State var count = 0
+
+    func increment () {
+        count += 1
+    }
+
+    func mount () {
+        print("Child mount")
+    }
+
+    func unmount () {
+        print("Child unmount")
+    }
+
+    func parentMount () {
+        print("parent mount")
+    }
+
+
+    var body: some View {
+        VStack {
+            Button(action: increment) {
+                Text("Increment")
+            }
+            if count < 10 || count > 12 {
+                ChildCounter(count: count)
+                    .onAppear(perform: mount)
+                    .onDisappear(perform: unmount)
+            }
+        }
+        .onAppear(perform: parentMount)
+    }
+}
+```
