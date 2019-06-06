@@ -3,13 +3,13 @@
 With SwiftUI you can create state in views and pass that state to child views, much as you would in React. You can also pass functions as props which allow child views to control state in parent components.
 
 ```jsx
-import React from "react"
+import React from "react";
 
 export function ContentView() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   function increment() {
-    setCount(count + 1)
+    setCount(count + 1);
   }
 
   return (
@@ -17,7 +17,7 @@ export function ContentView() {
       <div>Press the button below</div>
       <ChildView count={count} increment={increment} />
     </div>
-  )
+  );
 }
 
 export function ChildView({ counter, increment }) {
@@ -26,7 +26,7 @@ export function ChildView({ counter, increment }) {
       <div>{counter}</div>
       <button onClick={increment}>Increment</button>
     </div>
-  )
+  );
 }
 ```
 
@@ -66,11 +66,4 @@ struct ChildView : View {
     }
 }
 
-#if DEBUG
-struct ContentView_Previews : PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-#endif
 ```
