@@ -4,6 +4,8 @@ With SwiftUI you can create state in views and pass that state to child views, m
 
 The example below creates a simple counter. The `ContentView` manages the `count` state, while the child view renders that count and asks the parent to increment.
 
+### React
+
 ```jsx
 import React from "react";
 
@@ -31,6 +33,8 @@ export function ChildView({ counter, increment }) {
   );
 }
 ```
+
+### SwiftUI
 
 ```swift
 import SwiftUI
