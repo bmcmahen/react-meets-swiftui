@@ -2,6 +2,8 @@
 
 With SwiftUI you can create state in views and pass that state to child views, much as you would in React. You can also pass functions as props which allow child views to control state in parent components.
 
+The example below creates a simple counter. The `ContentView` manages the `count` state, while the child view renders that count and asks the parent to increment.
+
 ```jsx
 import React from "react";
 

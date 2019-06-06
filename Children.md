@@ -1,16 +1,16 @@
 ## Children
 
-I'm still trying to really nail this one down, but it seems possible to be able to pass children to child views in SwiftUI. This example shows a common `Layout`, `Content` composition pattern.
+I'm still trying to really nail this one down, but it seems possible to pass children to child views in SwiftUI. This example shows a common `Layout`, `Content` composition pattern which I commonly use in React, and is the key to developing reusable, flexible components.
 
 ```jsx
-import React from "react"
+import React from "react";
 
 function Page() {
   return (
     <Layout>
       <span>This is the page content</span>
     </Layout>
-  )
+  );
 }
 
 function Layout({ children }) {
@@ -19,7 +19,7 @@ function Layout({ children }) {
       <span>This is the layout</span>
       {children}
     </div>
-  )
+  );
 }
 ```
 
