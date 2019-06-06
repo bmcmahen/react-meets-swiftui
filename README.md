@@ -9,3 +9,4 @@ Please note: I'm a total newbie when it comes to Swift, so please contribute whe
 - [Managing State](State.md)
 - [Using Context](Context.md)
 - [Using Children](Children.md)
+- [Mounting and Unmounting Callbacks](ComponentDidMount.md)
