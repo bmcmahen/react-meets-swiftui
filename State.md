@@ -27,7 +27,7 @@ export function ContentView() {
 export function ChildView({ count, increment }) {
   return (
     <div>
-      <div>{coun t}</div>
+      <div>{count}</div>
       <button onClick={increment}>Increment</button>
     </div>
   );
