@@ -1,8 +1,8 @@
 ## Redux (Binding to an External Store)
 
-SwiftUI doesn't have any concept of a reducer as either found in redux or `useReducer`. But often what motivates the use of redux is the desire to create a single source of truth within an external model or store -- stores which can be subscribed to and updated from multiple components. You can achieve this in SwiftUI using the `BindableObject` protocol and `@ObjectBinding` property wrapper.
+SwiftUI doesn't have any concept of a reducer as either found in redux or `useReducer`. But often what motivates the use of redux is the desire to create a single source of truth within an external model or store — stores which can be subscribed to and updated from multiple components. You can achieve this in SwiftUI using the `BindableObject` protocol and `@ObjectBinding` property wrapper.
 
-I'm going to bypass the React example because it's quite verbose, but you can find a simple example of redux in this [counter example](https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter?from-embed)
+I'm going to bypass the React example because it's quite verbose, but you can find a simple example of redux with this [counter](https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter?from-embed).
 
 ## Swift
 
@@ -15,7 +15,7 @@ import SwiftUI
 import Combine
 
 class UserStore : BindableObject {
-    var didChange = PassthroughSubject<User, Never>()
+    var didChange = PassthroughSubject<UserStore, Never>()
     var visible = false { didSet { didChange.send(self)  }}
     var name: String { didSet { didChange.send(self) }}
 
