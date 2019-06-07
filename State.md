@@ -73,3 +73,40 @@ struct ChildView : View {
 }
 
 ```
+
+With SwiftUI you can use `@Binding` to enable child views to alter state provided by parent views. Notice that we prepend the `$` to our count value to pass its binding value. Our child can then alter the `count` state itself without supplying a callback to the parent.
+
+```swift
+import SwiftUI
+
+struct ContentView : View {
+    @State var count = 0
+
+    var body: some View {
+        VStack(spacing: 1.0) {
+            Text("Press the button below")
+            ChildView(
+                counter: $count
+            )
+        }
+    }
+}
+
+
+struct ChildView : View {
+    @Binding var counter: Int
+
+    func increment () {
+        counter += 1
+    }
+
+    var body: some View {
+        VStack {
+            Text("\(counter)")
+            Button(action: increment) {
+                Text("Increment")
+            }
+        }
+    }
+}
+```
