@@ -1,6 +1,6 @@
 ## Children
 
-I'm still trying to really nail this one down, but it seems possible to pass children to child views in SwiftUI. This example shows a common `Layout`, `Content` composition pattern which I commonly use in React, and is the key to developing reusable, flexible components.
+This example shows a common `Layout`, `Content` composition pattern which I commonly use in React, and is the key to developing reusable, flexible components.
 
 ### React
 
@@ -27,7 +27,39 @@ function Layout({ children }) {
 
 ### SwiftUI
 
-The SwiftUI version seems harder to type. Currently, the below example only accepts a `Text` child. Does anyone know how to make this accept any view type?
+With SwiftUI you can utilize the `@ViewBuilder` function wrapper to accept arbitrary children. Further details and explanation can be found [here](https://stackoverflow.com/questions/56532366/using-viewbuilder-to-create-views-which-support-multiple-children)
+
+```swift
+struct ContentView : View {
+    var body: some View {
+        HStack {
+            Text("Hello:")
+            Layout {
+                Text("Ben")
+                Text("McMahen")
+            }
+        }
+
+    }
+}
+
+struct Layout<Content>: View where Content: View {
+    let content: Content
+
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack {
+            Text("Hello: ")
+            content
+        }
+    }
+}
+```
+
+You can also specify the child type. In this example, we require that the child is `Text`:
 
 ```swift
 import SwiftUI
