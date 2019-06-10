@@ -44,16 +44,16 @@ struct ContentView : View {
 }
 
 struct Layout<Content>: View where Content: View {
-    let content: Content
+    let content: () -> Content
 
     init(@ViewBuilder content: @escaping () -> Content) {
-        self.content = content()
+        self.content = content
     }
 
     var body: some View {
         VStack {
             Text("Hello: ")
-            content
+            content()
         }
     }
 }
