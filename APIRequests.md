@@ -2,6 +2,8 @@
 
 Making an HTTP request in SwiftUI is similar to React insofar as you can make the request when the component mounts, and update your state based on the content (or errors) you receive to provide visual feedback to the user. That's about where the similarities end. Making the API request is really quite different and will seem... really, really complex compared to writing Javascript.
 
+### React
+
 ```jsx
 function ContentView() {
   const [profile, setProfile] = React.useState(null);
@@ -40,7 +42,7 @@ function ContentView() {
 }
 ```
 
-## Swift
+### Swift
 
 In short, you make your HTTP request using `URLSession`. It accepts a URL parameter. In this example, we are fetching my profile on Github.
 
