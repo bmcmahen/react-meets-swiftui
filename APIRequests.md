@@ -6,8 +6,6 @@ In short, you make your HTTP request using `URLSession`. It accepts a URL parame
 
 After fetching it, we need to either handle errors or decode our response. This will be quite different for users coming from a JS background, but it's actually relatively easy. Finally, we pass our response back to our View and update our data accordingly.
 
-One thing I don't like about this example is how we are handling optionals. Conditionally rendering optionals in SwiftUI seems really cumbersome at this point. If anyone knows a better way, please help!
-
 ```swift
 import SwiftUI
 import Foundation
@@ -65,14 +63,10 @@ struct API {
 
 
 struct ProfileView : View {
-    var profile: Profile?
+    var profile: Profile
 
     var body : some View {
-        if let profile = profile {
-            return Text("profile: \(profile.bio)")
-        }  else {
-            return Text("")
-        }
+      Text("profile: \(profile.bio)")
     }
 }
 
@@ -89,7 +83,9 @@ struct ContentView : View {
             if (error) {
                 Text("Error. Doh!")
             }
-            ProfileView(profile: profile)
+            if (profile != nil) {
+              ProfileView(profile: profile!)
+            }
         }.onAppear(perform: fetch)
     }
 
