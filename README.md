@@ -2,7 +2,7 @@
 
 I'm looking to learn SwiftUI over the coming weeks and will be using this repository to record various common React design patterns implemented in SwiftUI.
 
-Please note: I'm a total newbie when it comes to Swift, so please contribute where you can to fix my inevitable errors.
+__[An Introduction to SwiftUI for React Developers](https://benmcmahen.com/swiftui-for-react-developers/)
 
 ### Examples
 
@@ -15,6 +15,7 @@ Please note: I'm a total newbie when it comes to Swift, so please contribute whe
 - [Button Variants](StyleVariants.md)
 - [API Requests](APIRequests.md)
 
-### TODO
+### Todo
 
 - Conditional Rendering with Optionals
+- Layouts
