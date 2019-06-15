@@ -4,6 +4,8 @@ Making an HTTP request in SwiftUI is similar to React insofar as you can make th
 
 ### React
 
+[Codesandbox](https://codesandbox.io/embed/gifted-moon-eo8g8)
+
 ```jsx
 function ContentView() {
   const [profile, setProfile] = React.useState(null);
