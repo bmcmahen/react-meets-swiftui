@@ -15,7 +15,10 @@ I'm looking to learn SwiftUI over the coming weeks and will be using this reposi
 - [Button Variants](StyleVariants.md)
 - [API Requests](APIRequests.md)
 - [Conditional Rendering with Optional Values](ConditionalRendering.md)
+- [Basic Layouts](Layouts/Layouts.md)
 
 ### Todo
 
-- Layouts
+- Async Image (loading from URL)
+- Responsive layouts
+- Firebase
