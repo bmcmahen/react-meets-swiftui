@@ -71,20 +71,72 @@ struct StyledButton : View {
 }
 ```
 
-SwiftUI also has something called a `ViewModifier`. Using a ViewModifier we can encapsulate various view attributes that can be applied to any view. What's a `modifier` in SwiftUI? A modifier are things like `color`, `font` or other methods you call after declaring a View instance.
+SwiftUI also has something called a `ViewModifier`. Using a ViewModifier we can encapsulate combinations of view attributes for cleaner, reusable code. This means we can encapsulate combinations of `color`, `font`, `frame`, and other view attributes so that they can be easily reused.
 
-... TODO: ViewModifier
+The example below uses a `ViewModifier` to encapsulate our button intent variations.
 
 ```swift
-enum StyledButtonTypes {
+import SwiftUI
+
+enum ButtonIntent {
     case primary, secondary
 }
 
-struct ButtonAppearance : ViewModifier {
-    var type: StyledButtonTypes = .secondary
+
+struct ButtonIntentModifier : ViewModifier {
+
+    var intent = ButtonIntent.secondary
+
+    func getBackgroundColor(intent: ButtonIntent) -> Color {
+        switch intent {
+        case .primary:
+            return Color.blue
+        default:
+            return Color.green
+        }
+    }
 
     func body(content: Content) -> some View {
-        return content
+        content.background(getBackgroundColor(intent: self.intent))
+    }
+}
+
+
+struct ContactButton : View {
+    var action: () -> Void
+    var intent = ButtonIntent.secondary
+    var label: () -> Text
+
+    var body: some View {
+        Button(action: action) {
+            label()
+                .color(Color.white)
+                .padding()
+                .modifier(ButtonIntentModifier(intent: .primary))
+                .cornerRadius(5)
+        }
+
+    }
+}
+```
+
+Pretty cool, eh? You can imagine how you could create highly reusable view modifiers beyond this fairly limited use-case.
+
+We can then create a `ContactButton` like in the example below:
+
+```swift
+struct ContentView : View {
+
+    func onContact() {
+        print("contact me")
+    }
+
+    var body: some View {
+        Group {
+            ContactButton(action: onContact, intent: .primary) {
+                Text("Contact me")
+            }
+        }
     }
 }
 ```
