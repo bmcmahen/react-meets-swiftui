@@ -2,6 +2,10 @@
 
 If you're coming from a React background, chances are you're used to doing layouts with CSS. SwiftUI is quite different in this regard. I'll be creating various layouts here to demonstrate what's possible in SwiftUI.
 
+- [Using Spacer](Spacer.md) - Before getting started on anything too complex, it's worth understanding how to use `Spacer` in conjunction with `HStack` and `VStack` to create layouts much like you would with flexbox.
+
+## Example layout
+
 <img src="https://raw.githubusercontent.com/bmcmahen/react-meets-swiftui/master/Layouts/profile.png" max-width="300px" alt="Profile layout">
 
 ### React
