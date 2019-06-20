@@ -22,3 +22,4 @@ I'm looking to learn SwiftUI over the coming weeks and will be using this reposi
 - Async Image (loading from URL)
 - Responsive layouts
 - Firebase
+- Gestures

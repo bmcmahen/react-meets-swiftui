@@ -140,3 +140,43 @@ struct ContentView : View {
     }
 }
 ```
+
+Alternatively, we could expose the `ViewModifier` as a function on `ContactButton`:
+
+```swift
+struct ContactButton : View {
+    var action: () -> Void
+    var label: () -> Text
+
+    var body: some View {
+        Button(action: action) {
+            label()
+                .color(Color.white)
+                .padding()
+        }
+    }
+
+    func intent (type: ButtonIntent) -> some View {
+        Modified(content: self, modifier: ButtonIntentModifier(type))
+    }
+}
+
+struct ContentView : View {
+
+    func onContact() {
+        print("contact me")
+    }
+
+    var body: some View {
+        Group {
+            ContactButton(action: onContact) {
+                Text("Contact me")
+            }
+            .intent(.primary)
+        }
+    }
+}
+
+```
+
+In this case, I think including intent as a prop makes more sense because each button should have an intent of some sort. But you can imagine this being useful to encapsulate optional view modifiers.
