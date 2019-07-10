@@ -2,6 +2,8 @@
 
 SwiftUI doesn't have any concept of a reducer as either found in redux or `useReducer`. But often what motivates the use of redux is the desire to create a single source of truth within an external model or store — stores which can be subscribed to and updated from multiple components. You can achieve this in SwiftUI using the `BindableObject` protocol and `@ObjectBinding` property wrapper.
 
+[Edit: Using `@EnvironmentObject` might actually be a closer proxy to redux, since it allows you to access a single source of truth throughout the app, similar to redux. So be sure to check out the [context](/Context.md) page for an explanation on how to use EnvironmentObject]
+
 I'm going to bypass the React example because it's quite verbose, but you can find a simple example of redux with this [counter](https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter?from-embed).
 
 ## Swift
