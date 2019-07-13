@@ -1,5 +1,7 @@
 ## Using Spacer()
 
+I ended up writing a blog post about this. [Using SwiftUI's Spacer to Create Complex Layouts](https://benmcmahen.com/using-spacer-in-swiftui/)
+
 In addition to `HStack` and `VStack`, `Spacer` is probably one of the most important Views for creating layouts. This is especially so because by default Views only take up as little space as required. Let's look at an example:
 
 ```jsx
