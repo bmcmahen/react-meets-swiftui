@@ -21,8 +21,8 @@ struct LayoutView : View {
     @State var profile: Profile?
     var body : some View {
         Group {
-            if profile != nil {
-                ProfileView(profile: profile!)
+            if let profile = profile {
+                ProfileView(profile: profile)
             }
         }
     }.onAppear(perform: fetch)
